@@ -1,3 +1,4 @@
+// beer collection constructor
 function BeerCollection() {
 	this.beers = [];
 	this.add = function(beer) {
@@ -5,6 +6,7 @@ function BeerCollection() {
 	}
 }
 
+// beer constructor for random beers
 function Beer() {
 	this.sour = Math.floor(Math.random() * 4) + 1;
 	this.bitter = Math.floor(Math.random() * 4) + 1;
@@ -16,6 +18,7 @@ function Beer() {
 	this.name = "the " + adverb + " " + adjective + " " + noun;
 }
 
+// gengerate specified number of random beers
 function beerGenerator(numOfBeers) {
 	var i;
 	for(i = 1; i <= numOfBeers; i++) {
@@ -23,12 +26,11 @@ function beerGenerator(numOfBeers) {
 	};
 };
 
+// example name for a beer collection
 beerStash = new BeerCollection()
 
 var nouns = ['stout','pilsner','lager','ale','IPA','double','tripel',
 'quadrupel','porter','strong ale','pale lager','dark lager','bitter','de garde'];
-
-Adjectives:
 
 var adjectives = ['acclaimed','adept','adored','aged','altruistic','amazing','ancient','austere',
 'beloved','biodegradable','bogus','boring','bright','bubbly','carefree','celebrated','coarse',
@@ -50,29 +52,6 @@ var adverbs = ['abnormally','accidentally','amazingly','assuredly','astonishingl
 'significantly','skillfully','subtly','tremendously','unanimously','valiantly','victoriously',
 'vivaciously','widely','worthily','yearly','zealously','zestfully','zestily'];
 
-pastTenseVerbs = ['brewed','crafted','consumed','made','produced'];
-
-
-
-// var user = {
-// 	overallRanking: ["sour", "salty", "sweet", "bitter"],
-// 	sour:   1,
-// 	bitter: 2,
-// 	sweet:  3,
-// 	salty:  4
-// };
-// var matches = [];
-// var potentialMatches = beerStash.beers.slice();
-
-// user.overallRanking.forEach(function(taste) {
-// 	matches = [];
-// 	potentialMatches.forEach(function(beer) {
-// 		if(beer[taste] === user[taste]) {
-// 			matches.push(beer);
-// 		};
-// 	})
-// 	potentialMatches = matches.slice();
-// });
 
 
 
