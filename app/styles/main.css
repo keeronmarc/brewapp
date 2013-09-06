@@ -27,13 +27,13 @@ body {
     font-size: 18px;
     font-weight: 200;
     line-height: 30px;
-    background-color: plum;
+    background-color: #A06D45;
     border-radius: 6px;
     padding: 0px;
 }
 
 .header {
-    background-color: yellow;
+    background: linear-gradient(to bottom, #a57731 0%,#8e1300 180%);
     margin: 20px auto;
     font-size: 60px;
     line-height: 2;
@@ -43,9 +43,8 @@ body {
 }
 
 .footer {
-    background-color: yellow;
+    background: linear-gradient(to top, #a57731 0%,#8e1300 300%);
     margin: 20px auto;
-    font-size: 60px;
     line-height: 2;
     letter-spacing: -1px;
     font-family: "lethalLeague";
@@ -68,7 +67,7 @@ body {
 .big-button-container {
      display: inline-block;
      margin: 0px;  
-     padding: 75px 147px 75px; 
+     padding: 120px 80px; 
 }
 
 .circle {
