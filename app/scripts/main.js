@@ -52,7 +52,26 @@ var adverbs = ['abnormally','accidentally','amazingly','assuredly','astonishingl
 'significantly','skillfully','subtly','tremendously','unanimously','valiantly','victoriously',
 'vivaciously','widely','worthily','yearly','zealously','zestfully','zestily'];
 
+// beer matching
+var user = {
+	overallRanking: ["sour", "salty", "sweet", "bitter"],
+	sour:   1,
+	bitter: 2,
+	sweet:  3,
+	salty:  4
+};
+var matches = [];
+var potentialMatches = beerStash.beers.slice();
 
+user.overallRanking.forEach(function(taste) {
+	matches = [];
+	potentialMatches.forEach(function(beer) {
+		if(beer[taste] === user[taste]) {
+			matches.push(beer);
+		};
+	})
+	potentialMatches = matches.slice();
+});
 
 
 
