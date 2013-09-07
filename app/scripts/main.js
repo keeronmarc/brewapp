@@ -52,6 +52,54 @@ var adverbs = ['abnormally','accidentally','amazingly','assuredly','astonishingl
 'significantly','skillfully','subtly','tremendously','unanimously','valiantly','victoriously',
 'vivaciously','widely','worthily','yearly','zealously','zestfully','zestily'];
 
+// beer matching: a joe and keeron collaboration
+var user = {
+	sour:   4,
+	bitter: 2,
+	salty:  3,
+	sweet:  3,
+	// just setting the tastes to this array for use in the rank funciton
+	overallRanking: ["sour", "bitter", "salty", "sweet"],
+	rank: function() {
+		// this will sort the users preferences and rank them
+		// in order of favorite to least favorite based on
+		// the rank they gave each taste
+		this.overallRanking.sort(function(a, b) {
+			return user[b] - user[a];
+		});
+	}
+};
+
+var matches = [];
+user.overallRanking.forEach(function(taste) {
+	beerStash.beers.forEach(function(beer) {
+		beer.diff = beer.diff + (Math.abs(beer[taste] - user[taste]));
+	});
+});
+
+beerStash.beers.forEach(function(beer) {
+	if(beer.diff === 2) {
+		if(user[(user.overallRanking[0])] === beer[(user.overallRanking[0])]) {
+			matches.unshift(beer)
+		}
+		else {matches.push(beer)};
+	};
+});
+
+beerStash.beers.forEach(function(beer) {
+	if(beer.diff === 0) {
+		matches.unshift(beer);
+	};
+});
+
+// this will display all beers with there values compared to the users preference values
+// just for testing purposes
+// matches.forEach(function(beer) {
+// 	user.overallRanking.forEach(function(taste) {
+// 		console.log(taste + ": " + beer[taste] + " vs " + user[taste])
+// 	});
+// 	console.log(" ");
+// });
 
 
 
