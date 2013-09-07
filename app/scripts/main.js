@@ -9,6 +9,8 @@ function BeerCollection() {
 // beer constructor for random beers
 function Beer() {
 	this.sour = Math.floor(Math.random() * 4) + 1;
+	// Math.floor(Math.random() * num)) gives you a random integer number between 0 and 
+	// num, including 0, but not including num. So, it might give you 3
 	this.bitter = Math.floor(Math.random() * 4) + 1;
 	this.salty = Math.floor(Math.random() * 4) + 1;
 	this.sweet = Math.floor(Math.random() * 4) + 1;
