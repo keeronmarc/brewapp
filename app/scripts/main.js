@@ -92,7 +92,6 @@ beerStash.beers.forEach(function(beer) {
 	};
 });
 
-
 // this will display all beers with there values compared to the users preference values
 // just for testing purposes
 // matches.forEach(function(beer) {
@@ -101,6 +100,7 @@ beerStash.beers.forEach(function(beer) {
 // 	});
 // 	console.log(" ");
 // });
+
 
 
 
