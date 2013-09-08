@@ -1,3 +1,17 @@
+
+$(document).ready(function(){
+
+	$('.modal-button').click(function(){
+		$('.modal').addClass('hidden');
+		$('.modal').hide();
+		// $('.modal').addClass('hide');
+	});
+
+	$('.big-button-container').click(function(){
+		$('.next-page').addClass('visible');
+	});
+
+
 // beer collection constructor
 function BeerCollection() {
 	this.beers = [];
@@ -106,11 +120,4 @@ beerStash.beers.forEach(function(beer) {
 
 
 
-
-
-
-
-
-
-
-
+}); 
