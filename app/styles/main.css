@@ -1,20 +1,31 @@
-/*utilities*/
+/* utilities */
 * {
     vertical-align: top;
     text-decoration: none;
+    font-family: 'capture-itregular';
 }
 
 @font-face {
-    font-family: 'lethalLeague';
-    src: url('fonts/lethalleague-webfont.eot');
-    src: url('fonts/lethalleague-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/lethalleague-webfont.woff') format('woff'),
-         url('fonts/lethalleague-webfont.ttf') format('truetype'),
-         url('fonts/lethalleague-webfont.svg#lethal_leagueregular') format('svg');
+   font-family: 'capture-itregular';
+    src: url('fonts/capture_it-webfont.eot');
+    src: url('fonts/capture_it-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/capture_it-webfont.woff') format('woff'),
+         url('fonts/capture_it-webfont.ttf') format('truetype'),
+         url('fonts/capture_it-webfont.svg#capture_itregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
+
+/*@font-face {
+    font-family: 'rapscallion';
+    src: url('fonts/rapscall-webfont.eot');
+    src: url('fonts/rapscall-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rapscall-webfont.woff') format('woff'),
+         url('fonts/rapscall-webfont.ttf') format('truetype'),
+         url('fonts/rapscall-webfont.svg#rapscallionregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} -- not WORKING???!?!?!?!??!?!?!?!?!?! even when i comment out 'capture-itregular' and replace it in the top utility. gota b somthn stoooooooooopid!!!!!!!!!!!*/
 
 body {
     background: #fafafa;
@@ -22,48 +33,42 @@ body {
     color: #333;
 }
 
-/*containers*/
+/* main-containers */
 
+.header {
+    background: #F1D97C;
+    border-bottom: 10px solid #D0B65D;
+    margin: 20px auto;
+    font-size: 60px;
+    line-height: 2;
+    letter-spacing: -1px;
+    text-align: center;
+    text-shadow: 12px 6px 0px #C8A84C;
+}
 
+.footer {
+    background: #F1D97C;
+    border-top: 5px solid #D0B65D;
+    margin: 20px auto;
+    padding-top: 40px;
+    letter-spacing: -1px;
+    text-align: center;
+}
 
 .main-container {
-    margin: 0 auto;
     width: 900px;
     min-width: 900px;
     font-size: 18px;
     font-weight: 200;
     line-height: 30px;
-    background-color: #A06D45;
+    background-color: #C29819;
     border-radius: 6px;
     padding: 0px;
+    margin: 0px auto;
+    z-index: 10;
+    position: relative;
 }
 
-.header {
-    background: linear-gradient(to bottom, #a57731 0%,#8e1300 180%);
-    margin: 20px auto;
-    font-size: 60px;
-    line-height: 2;
-    letter-spacing: -1px;
-    font-family: "lethalLeague";
-    text-align: center;
-}
-
-.footer {
-    background: linear-gradient(to top, #a57731 0%,#8e1300 300%);
-    margin: 20px auto;
-    line-height: 2;
-    letter-spacing: -1px;
-    font-family: "lethalLeague";
-    text-align: center;
-}
-
-.container {
-    margin: 0 100px;
-    background: #ccc;
-    color: black;
-    padding: 0.2em 0;
-    text-align: center;
-}
 
 .buttons-container {
     display: inline-block;
@@ -72,30 +77,86 @@ body {
 
 .big-button-container {
      display: inline-block;
-     margin: 0px;  
-     padding: 120px 80px; 
+     margin-left: 90px;  
+     padding: 80px 80px; 
 }
 
-.circle {
+.container-o-circles {
     margin: 20px auto;
 }
 
-.circle .sour {
-    margin-right: 10px;
+.flavor-box {
+    display: inline-block;
 }
 
-.circle .bitter {
-
+.flavor-box span {
+    display: block;
+    margin: 28px auto;
 }
 
-.circle .salty {
-    margin-right: 5px;
+.user {
+    display: inline-block;
+    margin-left: 70px
 }
 
-.circle .sweet {
-    margin-right: 1px;
+/* next-page containers */
+
+.next-page {
+    margin-top: -551px;
+    visibility: hidden;
+    z-index: 11;
+    /*position: absolute;*/
+    /*background: rgb(109, 109, 109);*/
+    /*-webkit-transition: all .75s ease;*/
 }
-/*buttons*/
+
+.next-page .bottle {
+    width: 74px;
+    height: auto;
+    display: inline-block;
+    margin-left: 207px;
+    background-color: #C8A84C;
+    box-shadow: 0 0 34px 11px #C8A84C, 0 0 0px -2px black;
+}
+
+.next-page p {
+    text-align: center;
+}
+
+.next-page .backward-foreward-container {
+    margin-left: 350px;
+    margin-top: -50px;
+    display: inline-block;
+}
+
+.next-page .box-o-preferences {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.next-page .beer-name {
+    font-family: 'rapscallion';
+}
+
+.next-page .user span {
+    display: block;
+    margin: 28px auto;
+}
+
+/* js classes */
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    opacity: 0;
+    -webkit-transition: opacity 1s ease;
+    /*-webkit-transition: opacity 1200ms cubic-bezier(1.000, -0.150, 0.755, -0.600);
+    -webkit-transition-timing-function: cubic-bezier(1.000, -0.150, 0.755, -0.600); */
+}
+
+/* buttons */
 
 .circle-button {
     font-weight: bold;
@@ -103,10 +164,21 @@ body {
     margin: 0px 20px;
     border-radius: 50%;
     display: inline-block;
-    color: #4A86B6;
-    background: linear-gradient(to bottom, rgb(202, 232, 252) 1%,rgb(253,253,253) 100%);
-    border: 1px solid #6F99AD;
-    box-shadow: inset 0 2px 2px 0px #FFF, inset 0 -4px 2px -3px #529AA8, 0 1px 2px 0px #8699A0;
+    color: black;
+    background: linear-gradient(to bottom, rgba(200,168,76,1) 20%,rgba(241,209,106,1) 100%);
+    box-shadow:  0px 0px 12px -3px black;
+}
+
+
+.depress {
+    font-weight: bold;
+    text-align: center;
+    margin: 0px 20px;
+    border-radius: 50%;
+    display: inline-block;
+    color: black;
+    background: #000;
+    box-shadow:  0px 0px 12px -3px black;
 }
 
 .small {
@@ -122,4 +194,89 @@ body {
     width: 120px;
     font-size: 1.7em;
     line-height: 3.7em;
+    margin-right: 0px;
+}               
+
+.backward-button {
+    display: inline-block;
+    width: 50px;
+    height: auto;
+
+}
+
+.backward-button img {
+    width: 100%;
+    height: auto;
+}
+
+.foreward-button {
+    display: inline-block;
+    width: 50px;
+    height: auto;
+    margin-left: 100px;
+}
+
+.foreward-button img {
+    width: 100%;
+    height: auto;
+}
+
+.modal-button {
+    width: 140px;
+    height: 100px;
+    background: #AD731D;
+    box-shadow: 0px 0px 15px 2px #C8A84C;
+    border-radius: 4px;
+    margin-left: 405px;
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+}
+
+.modal-button span {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 42px;
+    color: #C8A84C;
+}
+
+.modal-button a {
+    text-decoration: none;
+}
+
+/**** modal ****/
+
+.modal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(109, 109, 109, 0.9);
+    z-index: 100;
+    visibility: visible;
+}
+
+.modal p {
+    text-align: center;
+    color: #B8861E;
+    margin-top: 120px;
+    font-size: 27px;
+    text-shadow: 2px 2px 0px #BF983D, 5px 4px 10px black;
+}
+
+/*.hide {
+    visibility: hidden;
+    -webkit-transition: visibility 1.2s ease;
+}
+why wont this work???!!!!!!!!*/
+
+/* input */
+
+input {
+    box-shadow: 0 0 11px 4px #C8A84C;
+    padding: 15px;
+    background-color: #F1D16A;
+    margin: -50px 0px -21px 90px;
+    width: 188px;
 }
