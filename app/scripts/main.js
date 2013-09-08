@@ -18,6 +18,7 @@ function Beer() {
 	var adjective = adjectives[(Math.floor(Math.random() * adjectives.length))];
 	var noun = nouns[(Math.floor(Math.random() * nouns.length))];
 	this.name = "the " + adverb + " " + adjective + " " + noun;
+	this.diff = 0;
 }
 
 // gengerate specified number of random beers
@@ -56,10 +57,10 @@ var adverbs = ['abnormally','accidentally','amazingly','assuredly','astonishingl
 
 // beer matching: a joe and keeron collaboration
 var user = {
-	sour:   4,
-	bitter: 2,
-	salty:  3,
-	sweet:  3,
+	sour:   0,
+	bitter: 0,
+	salty:  0,
+	sweet:  0,
 	// just setting the tastes to this array for use in the rank funciton
 	overallRanking: ["sour", "bitter", "salty", "sweet"],
 	rank: function() {
@@ -69,30 +70,95 @@ var user = {
 		this.overallRanking.sort(function(a, b) {
 			return user[b] - user[a];
 		});
+	},
+	errorRank: function() {
+		errorTaste = false;
+		overallRanking.forEach(function (taste) {
+			if (user[taste] === 0) {
+				var errorTaste = true;
+			}
+		});
+			console.log("error returns true");	
+			return errorTaste;
 	}
 };
 
-var matches = [];
-user.overallRanking.forEach(function(taste) {
-	beerStash.beers.forEach(function(beer) {
-		beer.diff = beer.diff + (Math.abs(beer[taste] - user[taste]));
+function beerDiff(user, allBeers) {
+	user.overallRanking.forEach(function(taste) {
+		allBeers.forEach(function(beer) {
+			beer.diff = beer.diff + (Math.abs(beer[taste] - user[taste]));
+		});
 	});
+	return allBeers;
+};
+
+function beerMatches(user, allBeers) {
+	var matches = [];
+	allBeers.forEach(function(beer) {
+		if(beer.diff === 1) {
+			if(user[(user.overallRanking[0])] === beer[(user.overallRanking[0])]) {
+				matches.unshift(beer)
+			}
+			else {matches.push(beer)};
+		};
+	});
+
+	allBeers.forEach(function(beer) {
+		if(beer.diff === 0) {
+			matches.unshift(beer);
+		};
+	});
+	
+	return matches
+};
+
+// beerMatches(user, beerDiff(user, beerStash.beers)).forEach(function(beer) {
+// 	user.overallRanking.forEach(function(taste) {
+// 		console.log(taste + ": " + beer[taste] + " vs " + user[taste])
+// 	});
+// 	console.log(" ");
+// });
+
+// beerStash = new BeerCollection()
+// 	user.sour = Math.floor(Math.random() * 4) + 1;
+// 	user.bitter = Math.floor(Math.random() * 4) + 1;
+// 	user.salty = Math.floor(Math.random() * 4) + 1;
+// 	user.sweet = Math.floor(Math.random() * 4) + 1;
+// 	user.rank()
+// 	beerGenerator(1000);
+
+
+// user interaction
+$('.circle.sour').on("click", "a", function() {
+	$('.sour a').addClass('depress');
+	$('.sour a').removeClass();
+	})
+
+	var sourVal = $(this).text();
+	user.sour = sourVal;
 });
 
-beerStash.beers.forEach(function(beer) {
-	if(beer.diff === 2) {
-		if(user[(user.overallRanking[0])] === beer[(user.overallRanking[0])]) {
-			matches.unshift(beer)
-		}
-		else {matches.push(beer)};
-	};
+
+$('.circle.bitter').on("click", "a", function() {
+	var bitterVal = $(this).text();
+	user.bitter = bitterVal;
 });
 
-beerStash.beers.forEach(function(beer) {
-	if(beer.diff === 0) {
-		matches.unshift(beer);
-	};
+$('.circle.salty').on("click", "a", function() {
+	var saltyVal = $(this).text();
+	user.salty = saltyVal;
 });
+
+$('.circle.sweet').on("click", "a", function() {
+	var sweetVal = $(this).text();
+	user.sweet = sweetVal;
+});
+
+$('.circle-button.large').click(function() {
+// call keeron's error check
+	beerMatches(user, beerDiff(user, beerStash.beers));
+});
+
 
 // this will display all beers with there values compared to the users preference values
 // just for testing purposes
