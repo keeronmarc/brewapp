@@ -11,7 +11,6 @@ $(document).ready(function(){
 		$('.next-page').addClass('visible');
 	});
 
-}); 
 
 // beer collection constructor
 function BeerCollection() {
@@ -121,12 +120,4 @@ beerStash.beers.forEach(function(beer) {
 
 
 
-
-
-
-
-
-
-
-
->>>>>>> 26a1c4771489d18726a30a866a4c3d9eae164ed4
+}); 

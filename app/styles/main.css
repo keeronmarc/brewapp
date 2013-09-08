@@ -1,4 +1,4 @@
-/*utilities*/
+/* utilities */
 * {
     vertical-align: top;
     text-decoration: none;
@@ -14,8 +14,18 @@
          url('fonts/capture_it-webfont.svg#capture_itregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
+
+/*@font-face {
+    font-family: 'rapscallion';
+    src: url('fonts/rapscall-webfont.eot');
+    src: url('fonts/rapscall-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rapscall-webfont.woff') format('woff'),
+         url('fonts/rapscall-webfont.ttf') format('truetype'),
+         url('fonts/rapscall-webfont.svg#rapscallionregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} -- not WORKING???!?!?!?!??!?!?!?!?!?! even when i comment out 'capture-itregular' and replace it in the top utility. gota b somthn stoooooooooopid!!!!!!!!!!!*/
 
 body {
     background: #fafafa;
@@ -23,7 +33,7 @@ body {
     color: #333;
 }
 
-/*containers*/
+/* main-containers */
 
 .header {
     background: #F1D97C;
@@ -44,6 +54,7 @@ body {
     letter-spacing: -1px;
     text-align: center;
 }
+
 .main-container {
     width: 900px;
     min-width: 900px;
@@ -56,34 +67,6 @@ body {
     margin: 0px auto;
     z-index: 10;
     position: relative;
-}
-
-.next-page {
-    margin-top: -551px;
-    visibility: hidden;
-    z-index: 11;
-    /*position: absolute;*/
-    /*background: rgb(109, 109, 109);*/
-    /*-webkit-transition: all .75s ease;*/
-}
-
-.next-page .bottle {
-    width: 74px;
-    height: auto;
-    display: inline-block;
-    margin-left: 210px;
-    background-color: #C8A84C;
-    box-shadow: 0 0 34px 11px #C8A84C, 0 0 0px -2px black;
-}
-
-.next-page p {
-    text-align: center;
-}
-
-.backward-foreward-container {
-    margin-left: 350px;
-    margin-top: -50px;
-    display: inline-block;
 }
 
 
@@ -102,12 +85,6 @@ body {
     margin: 20px auto;
 }
 
-
-.box-o-preferences {
-    display: inline-block;
-    margin-left: 20px;
-}
-
 .flavor-box {
     display: inline-block;
 }
@@ -122,14 +99,51 @@ body {
     margin-left: 70px
 }
 
-/*.next-page .user {
-    margin-left: 20px;
-}*/
+/* next-page containers */
 
-.user span {
+.next-page {
+    margin-top: -551px;
+    visibility: hidden;
+    z-index: 11;
+    /*position: absolute;*/
+    /*background: rgb(109, 109, 109);*/
+    /*-webkit-transition: all .75s ease;*/
+}
+
+.next-page .bottle {
+    width: 74px;
+    height: auto;
+    display: inline-block;
+    margin-left: 207px;
+    background-color: #C8A84C;
+    box-shadow: 0 0 34px 11px #C8A84C, 0 0 0px -2px black;
+}
+
+.next-page p {
+    text-align: center;
+}
+
+.next-page .backward-foreward-container {
+    margin-left: 350px;
+    margin-top: -50px;
+    display: inline-block;
+}
+
+.next-page .box-o-preferences {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.next-page .beer-name {
+    font-family: 'rapscallion';
+}
+
+.next-page .user span {
     display: block;
     margin: 28px auto;
 }
+
+/* js classes */
 
 .visible {
     visibility: visible;
@@ -142,7 +156,7 @@ body {
     -webkit-transition-timing-function: cubic-bezier(1.000, -0.150, 0.755, -0.600); */
 }
 
-/*buttons*/
+/* buttons */
 
 .circle-button {
     font-weight: bold;
@@ -245,12 +259,18 @@ body {
 }
 why wont this work???!!!!!!!!*/
 
-/*input*/
+/* input */
 
 input {
-    box-shadow: 0 0 11px 4px #C8A84C;
     padding: 15px;
-    background-color: #F1D16A;
     margin: -50px 0px -21px 90px;
     width: 188px;
+}
+
+input:focus {
+    box-shadow: 0 0 11px 4px #C8A84C;
+    background-color: #F1D16A;
+    color: black;
+    border: 0px solid black;
+    
 }
