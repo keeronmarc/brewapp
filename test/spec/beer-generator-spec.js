@@ -86,6 +86,11 @@
 		});
 
 
+		it('takes', function() {
+			var user = {sour: 3, bitter: 3, salty: 2, sweet:4}
+			expect(user.sour).to.equal(3);
+		});
+
 		// it("should check if sort function orders array ascending to descending", function () {
 		// 			var all = [3, 3, 2, 4];
 		// 			all.sort(function(a, b) {

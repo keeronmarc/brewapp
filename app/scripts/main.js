@@ -128,12 +128,10 @@ function beerMatches(user, allBeers) {
 // 	beerGenerator(1000);
 
 
-// user interaction
+// button interaction
 $('.circle.sour').on("click", "a", function() {
 	$('.sour a').addClass('depress');
-	$('.sour a').removeClass();
-	})
-
+ 	$(this).addClass('active');
 	var sourVal = $(this).text();
 	user.sour = sourVal;
 });
