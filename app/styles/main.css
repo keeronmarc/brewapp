@@ -175,16 +175,6 @@ body {
     -webkit-transition-timing-function: cubic-bezier(1.000, -0.150, 0.755, -0.600); */
 }
 
-.depress {
-    font-weight: bold;
-    text-align: center;
-    margin: 0px 20px;
-    border-radius: 50%;
-    display: inline-block;
-    color: black;
-    background: #000;
-    box-shadow:  0px 0px 12px -3px black;
-}
 
 /* buttons */
 
@@ -201,6 +191,9 @@ body {
 }
 
 .active {
+    -webkit-transition-property:color, background; 
+    -webkit-transition-duration: 1s, 1s; 
+    -webkit-transition-timing-function: linear, ease-in;
     font-weight: bold;
     text-align: center;
     margin: 0px 20px;
@@ -208,7 +201,23 @@ body {
     display: inline-block;
     color: white;
     opacity: 1;
-    background: red;
+    background: #E0601B;
+    box-shadow:  0px 0px 12px -3px black;
+}
+
+
+.depress{
+    -webkit-transition-property:color, background; 
+    -webkit-transition-duration: 1s, 1s; 
+    -webkit-transition-timing-function: linear, ease-in;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px 20px;
+    border-radius: 50%;
+    display: inline-block;
+    color: #fff;
+    background: #000;
+    opacity: 0.5;
     box-shadow:  0px 0px 12px -3px black;
 }
 

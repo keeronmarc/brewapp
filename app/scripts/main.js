@@ -141,33 +141,42 @@ function beerMatches(user, allBeers) {
 // 	user.rank()
 // 	beerGenerator(1000);
 
-function button_moves (taste,that) {
+// function button_moves (taste,that) {
+// 	$(taste).addClass('depress');
+//  	$(taste).removeClass('active');
+//  	$(that).addClass('active');
+// }
+
+
+
+function button_moves (taste, that) {
 	$(taste).addClass('depress');
- 	$(taste).removeClass('active');
- 	$(that).addClass('active');
+  	$(taste).removeClass('active');
+  	$(that).addClass('active');
+  	$(that).removeClass('depress');
 }
 
 // button interaction
-$('.circle.sour').on("click", "a", function() {	
+$('.container-o-circles.sour').on("click", "a", function() {	
 	button_moves('.sour a', this);
 	var sourVal = $(this).text();
 	user.sour = sourVal;
 });
 
 
-$('.circle.bitter').on("click", "a", function() {
+$('.container-o-circles.bitter').on("click", "a", function() {
 	button_moves('.bitter a', this);
 	var bitterVal = $(this).text();
 	user.bitter = bitterVal;
 });
 
-$('.circle.salty').on("click", "a", function() {
+$('.container-o-circles.salty').on("click", "a", function() {
 	button_moves('.salty a', this);
 	var saltyVal = $(this).text();
 	user.salty = saltyVal;
 });
 
-$('.circle.sweet').on("click", "a", function() {
+$('.container-o-circles.sweet').on("click", "a", function() {
 	button_moves('.sweet a', this);
 	var sweetVal = $(this).text();
 	user.sweet = sweetVal;
