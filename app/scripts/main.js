@@ -254,6 +254,8 @@ function slideEitherDirection() {
 //  	$(that).addClass('active');
 // }
 
+
+
 // this will display all beers with there values compared to the users preference values
 // just for testing purposes
 // matches.forEach(function(beer) {

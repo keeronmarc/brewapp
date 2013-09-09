@@ -71,6 +71,7 @@
 			beer.diff = beer.diff + (Math.abs(beer.sour - user.sour));
 			expect(beer.diff).to.equal(1);
 		}); 	
+
 	});
 
 })();
