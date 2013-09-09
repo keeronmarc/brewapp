@@ -1,3 +1,7 @@
+var matches = [];
+var indent = 0;
+var numberOfClicks = 0;
+var clicksMax = 0;
 
 $(document).ready(function(){
 
@@ -43,9 +47,6 @@ function beerGenerator(numOfBeers) {
 	};
 };
 
-// example name for a beer collection
-beerStash = new BeerCollection()
-
 var nouns = ['stout','pilsner','lager','ale','IPA','double','tripel',
 'quadrupel','porter','strong ale','pale lager','dark lager','bitter','de garde'];
 
@@ -70,7 +71,7 @@ var adverbs = ['abnormally','accidentally','amazingly','assuredly','astonishingl
 'vivaciously','widely','worthily','yearly','zealously','zestfully','zestily'];
 
 // beer matching: a joe and keeron collaboration
-var user = {
+user = {
 	sour:   0,
 	bitter: 0,
 	salty:  0,
@@ -107,7 +108,6 @@ function beerDiff(user, allBeers) {
 };
 
 function beerMatches(user, allBeers) {
-	var matches = [];
 	allBeers.forEach(function(beer) {
 		if(beer.diff === 1) {
 			if(user[(user.overallRanking[0])] === beer[(user.overallRanking[0])]) {
@@ -125,6 +125,8 @@ function beerMatches(user, allBeers) {
 
 	return matches
 };
+
+beerStash = new BeerCollection()
 
 // beerMatches(user, beerDiff(user, beerStash.beers)).forEach(function(beer) {
 // 	user.overallRanking.forEach(function(taste) {
@@ -183,8 +185,20 @@ $('.container-o-circles.sweet').on("click", "a", function() {
 });
 
 $('.circle-button.large').click(function() {
-// call keeron's error check
-	beerMatches(user, beerDiff(user, beerStash.beers));
+	// call keeron's error checkn !!!
+	beerGenerator(1000);
+	// user.rank() will rank users preferences base on value user chose
+	user.rank();
+	// the foundation of the program. searching through all beers for matches
+	matches = beerMatches(user, beerDiff(user, beerStash.beers));
+	// clicksMax is used when forward or back button is clicked
+	clicksMax = matches.length - 1;
+	// +1 to allow for display: inline-block extra margin madness
+	var sliderWidth = (matches.length + 1) * 400;
+	// sets width so that all beer matches can fit in div.slider-box
+	$('.slider-box').css( "width", sliderWidth );
+	// appends divs to .slider-box to display all the matches
+	displayMatches();
 });
 
 
@@ -197,8 +211,49 @@ $('.circle-button.large').click(function() {
 // 	console.log(" ");
 // });
 
+function displayMatches() {
+	// some crazy append actieeeeon
+	matches.forEach(function(beer) {
+		var beerBoxAndName = '<div class="beer-box"><span class="beer-name">' + beer.name + '</span>';
+		var boxOPrefsAndFlavs = '<div class="box-o-preferences"><div class="flavor-box">';
+		var tastes = '<span class="sour">sour:</span><span class="bitter">bitter:</span><span class="salty">salty:</span><span class="sweet">sweet:</span></div>';
+		var flaverUser = '<div class="flavor-box user"><span class="sour">' + beer.sour + '</span><span class="bitter">' + beer.bitter + '</span><span class="salty">' + beer.salty + '</span><span class="sweet">' + beer.sweet + '</span></div></div>';
+		var image = '<img class="bottle" src="images/bottle.png"></div>';
+		$('.slider-box').append(beerBoxAndName + boxOPrefsAndFlavs + tastes + flaverUser + image);
+	});
+};
 
+// forward and back buttons. this will allow clicking through array of matches.
+// also dims out forward or back button if it is not meant to be clicked by user.
+// uses a few variables declared at the top of main.js.
+$('.foreward-button').click(function () {
+	if(numberOfClicks < clicksMax) {
+		indent = indent - 400;
+		numberOfClicks += 1;
+		$('.backward-button').removeClass('button-faded')
+		$('.foreward-button').removeClass('button-faded')
+		console.log(numberOfClicks);
+		$('.slider-box').animate({'left': indent}, 200);  
+	};
+	if (numberOfClicks === clicksMax){
+		$('.foreward-button').addClass('button-faded');
+	}; 
+});
 
+$('.backward-button').click(function () {
+	console.log('back');
+	if (numberOfClicks !== 0) {
+		indent = indent + 400;
+		numberOfClicks -= 1;
+		console.log(numberOfClicks);
+		$('.backward-button').removeClass('button-faded')
+		$('.foreward-button').removeClass('button-faded')
+		$('.slider-box').animate({'left': indent}, 200); 
+	};
+	if (numberOfClicks === 0){
+		$('.backward-button').addClass('button-faded')
+	};      
+});
 
 
 
