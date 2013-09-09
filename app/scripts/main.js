@@ -185,6 +185,14 @@ $('.container-o-circles.sweet').on("click", "a", function() {
 });
 
 $('.circle-button.large').click(function() {
+// // call keeron's error check
+var checkrows = $('.container-o-circles a');
+	if ($('.active').length < 4) {
+		$('.errormsg').append('<p>You Might Want to Check Again!!!</p>');
+		return false;
+	}
+
+	beerMatches(user, beerDiff(user, beerStash.beers));
 	// call keeron's error checkn !!!
 	beerGenerator(1000);
 	// user.rank() will rank users preferences base on value user chose
@@ -200,6 +208,8 @@ $('.circle-button.large').click(function() {
 	// appends divs to .slider-box to display all the matches
 	displayMatches();
 });
+
+
 
 
 // this will display all beers with there values compared to the users preference values

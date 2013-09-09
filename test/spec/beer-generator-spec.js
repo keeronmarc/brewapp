@@ -6,7 +6,6 @@
 	})
 
 	beerStash = new BeerCollection();
-
 	describe('the BeerCollection constructor', function() {
 		it('method add() should push a new beer into the beerStash.beers array', function() {
 
