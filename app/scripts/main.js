@@ -1,3 +1,7 @@
+var matches = [];
+var indent = 0;
+var numberOfClicks = 0;
+var clicksMax = 0;
 
 $(document).ready(function(){
 
@@ -43,9 +47,6 @@ function beerGenerator(numOfBeers) {
 	};
 };
 
-// example name for a beer collection
-beerStash = new BeerCollection()
-
 var nouns = ['stout','pilsner','lager','ale','IPA','double','tripel',
 'quadrupel','porter','strong ale','pale lager','dark lager','bitter','de garde'];
 
@@ -70,11 +71,11 @@ var adverbs = ['abnormally','accidentally','amazingly','assuredly','astonishingl
 'vivaciously','widely','worthily','yearly','zealously','zestfully','zestily'];
 
 // beer matching: a joe and keeron collaboration
-var user = {
-	sour:   0,
-	bitter: 0,
-	salty:  0,
-	sweet:  0,
+user = {
+	sour:   1,
+	bitter: 2,
+	salty:  3,
+	sweet:  4,
 	// just setting the tastes to this array for use in the rank funciton
 	overallRanking: ["sour", "bitter", "salty", "sweet"],
 	rank: function() {
@@ -107,7 +108,6 @@ function beerDiff(user, allBeers) {
 };
 
 function beerMatches(user, allBeers) {
-	var matches = [];
 	allBeers.forEach(function(beer) {
 		if(beer.diff === 1) {
 			if(user[(user.overallRanking[0])] === beer[(user.overallRanking[0])]) {
@@ -125,6 +125,8 @@ function beerMatches(user, allBeers) {
 
 	return matches
 };
+
+beerStash = new BeerCollection()
 
 // beerMatches(user, beerDiff(user, beerStash.beers)).forEach(function(beer) {
 // 	user.overallRanking.forEach(function(taste) {
@@ -168,7 +170,13 @@ $('.circle.sweet').on("click", "a", function() {
 
 $('.circle-button.large').click(function() {
 // call keeron's error check
-	beerMatches(user, beerDiff(user, beerStash.beers));
+	beerGenerator(1000);
+	user.rank();
+	matches = beerMatches(user, beerDiff(user, beerStash.beers));
+	clicksMax = matches.length - 1;
+	var sliderWidth = (matches.length + 2) * 400;
+	$('.slider-box').css( "width", sliderWidth );
+	displayAllBeers();
 });
 
 
@@ -181,8 +189,46 @@ $('.circle-button.large').click(function() {
 // 	console.log(" ");
 // });
 
+function displayAllBeers() {
+	matches.forEach(function(beer) {
+		$('.slider-box').append('<div class="beer-box"><span class="beer-name">' + beer.name + '</span></div>')
+	});
 
 
+		// var text = "<li id='" + index +"'>" + user.name + 
+		// "<a href='#' class='small-user-button remove-user-button'>x</a></li>";
+		// ul.append(text);
+};
+
+
+$('.foreward-button').click(function () {
+	if(numberOfClicks < clicksMax) {
+		indent = indent - 400;
+		numberOfClicks += 1;
+		$('.backward-button').removeClass('button-faded')
+		$('.foreward-button').removeClass('button-faded')
+		console.log(numberOfClicks);
+		$('.slider-box').animate({'left': indent}, 200);  
+	};
+	if (numberOfClicks === clicksMax){
+		$('.foreward-button').addClass('button-faded');
+	}; 
+});
+
+$('.backward-button').click(function () {
+	console.log('back');
+	if (numberOfClicks !== 0) {
+		indent = indent + 400;
+		numberOfClicks -= 1;
+		console.log(numberOfClicks);
+		$('.backward-button').removeClass('button-faded')
+		$('.foreward-button').removeClass('button-faded')
+		$('.slider-box').animate({'left': indent}, 200); 
+	};
+	if (numberOfClicks === 0){
+		$('.backward-button').addClass('button-faded')
+	};      
+});
 
 
 

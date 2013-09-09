@@ -81,7 +81,7 @@ body {
 
 .flavor-box span {
     display: block;
-    margin: 0 auto 28px;
+    margin: 10px 10px 10px 0;
 }
 
 .flavor-box span:last-child {
@@ -109,10 +109,9 @@ body {
 }
 
 .next-page .bottle {
-    width: 61px;
-    height: auto;
+    height: 130px;
     display: inline-block;
-    margin-left: 120px;
+    margin: 33px 0 0 80px;
     background-color: #C8A84C;
     box-shadow: 0 0 34px 11px #C8A84C, 0 0 0px -2px black;
 }
@@ -122,14 +121,24 @@ body {
 }
 
 .box-o-beers {
-    margin: -18px auto;
+    height: 186px;
     width: 400px;
+    margin: -18px auto;
+    /*display: inline-block;*/
+    position: relative;
     overflow: hidden;
 }
 
+.slider-box {
+    position: relative;
+    left: 0px;
+}
+
 .beer-box {
+    height: 185px;
+    background: #E2C56F;
     display: inline-block;
-    width: 100%
+    width: 400px
 }
 
 .next-page .backward-foreward-container {
@@ -146,19 +155,21 @@ body {
 .next-page .beer-name {
     font-family: 'capture-itregular';
     text-align: center;
+    font-size: 18px;
+    margin: 10px 0 10px 70px;
 }
 
-.next-page .user {
+.next-page.user {
     display: inline-block;
     margin-left: 70px
 }
 
-.next-page .user span {
+.next-page.user span {
     display: block;
     margin: 0 auto 28px;
 }
 
-.next-page .user span:last-child {
+.next-page.user span:last-child {
     margin: 0;
 }
 
@@ -221,6 +232,10 @@ body {
     width: 50px;
     height: auto;
 
+}
+
+.button-faded {
+    opacity: 0.6;
 }
 
 .foreward-button img{
