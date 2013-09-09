@@ -84,9 +84,14 @@ body {
     margin: 10px 10px 10px 0;
 }
 
-.flavor-box span:last-child {
-    margin: 0;
+.flavor-box.for-buttons span {
+    display: block;
+    margin: 5px -35px 27px 26px;
 }
+
+/*.flavor-box.for-buttons span:last-child {
+    margin: 0;
+}*/
 
 
 .levels {
@@ -152,10 +157,10 @@ body {
     margin-top: 20px;
 }
 
-.next-page .beer-name {
+.beer-name {
     font-family: 'capture-itregular';
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     margin: 10px 0 10px 70px;
 }
 
