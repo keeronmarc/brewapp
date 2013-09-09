@@ -53,7 +53,7 @@
 			expect(beer.diff).to.equal(0);
 		});
 
-		it('checks if overallRanking first propterty is sour', function() {
+		it('checks if overallRanking first propterty is "sour"', function() {
 			expect(user.overallRanking[0]).to.equal('sour');
 		});
 
@@ -74,18 +74,7 @@
 		it('takes', function() {
 			var user = {sour: 3, bitter: 3, salty: 2, sweet:4}
 			expect(user.sour).to.equal(3);
-		});
-
-		// it("should check if sort function orders array ascending to descending", function () {
-		// 			var all = [3, 3, 2, 4];
-		// 			all.sort(function(a, b) {
-		// 				return b - a;	
-		// 			});
-			
-		//     expect(all).to.equal([4,3,3,2]);
-  // 		});
-
-  	
+		});  	
 	});
 
 })();

@@ -189,7 +189,7 @@ var checkrows = $('.container-o-circles a');
 		$('.errormsg').append('<p>You Might Want to Check Again!!!</p>');
 		return false;
 	}
-	// add
+
 	beerMatches(user, beerDiff(user, beerStash.beers));
 	beerGenerator(1000);
 	// user.rank() will rank users preferences base on value user chose
