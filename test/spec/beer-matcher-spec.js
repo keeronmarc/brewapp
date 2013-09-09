@@ -1,22 +1,13 @@
 'use strict';
 (function () {
 	describe('the beerMatching function', function() {
-		it('checks to see if beerStash length and is empty array', function() {
-			expect(beerStash.beers).to.have.length(0);
-		});
-
-		it('sets user\'s most preferred taste# to find in all beers the same taste#', function() {
-			expect(beer[(user.overallRanking[0])]).to.equal(beer[(user.overallRanking[0])]);
-		});
-
 		it('checks the value of beer.diff to be 0', function() {
-			expect(beer.diff).to.equal(0);
+			expect(indent).to.equal(0);
 		});
 
-		it('checks if overallRanking first propterty is sour', function() {
-			expect(user.overallRanking[0]).to.equal('sour');
+		it('checks to see if beerStash length and is empty array', function() {
+			expect(numberOfClicks).to.equal(0);
 		});
-
 
 		it('checks if the user inputted values are correctly outputted ', function() {
 			var user = {sour: 3, bitter: 3, salty: 2, sweet:4}
@@ -31,10 +22,16 @@
 			expect(beer.diff).to.equal(1);
 		});
 
-		it('takes', function() {
-			var user = {sour: 3, bitter: 3, salty: 2, sweet:4}
-			expect(user.sour).to.equal(3);
+		it('checks if overallRanking first propterty is sour', function() {
+			var user = {sour: 3, bitter: 3, salty: 2, sweet:4, 
+					overallRanking: ["sour", "bitter", "salty", "sweet"],
+			}
+			expect(user.overallRanking[0]).to.equal('sour');
 		});
+
+
+
+
 	});
 
 })();
