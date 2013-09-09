@@ -183,9 +183,58 @@ $('.container-o-circles.sweet').on("click", "a", function() {
 });
 
 $('.circle-button.large').click(function() {
-// call keeron's error check
+// // call keeron's error check
+var checkrows = $('.container-o-circles a');
+	if ($('.active').length < 4) {
+		$('.big-button-container').append('<p>You Might Want to Check Again!</p>');
+		return false;
+	}
+	// var flavors = ['sour', 'bitter', 'sweet', 'salty'];
+	// checkrows.each(function() {
+	// 	if ($(this.depress).length == false) {
+	// 		console.log("whoops");
+	// 		checkrows.css("background", "#ff0066");
+	// 	}
+	// });
+	// return false;
 	beerMatches(user, beerDiff(user, beerStash.beers));
 });
+
+//  function validateForm () {
+//  	var inputs = $('input');
+//  		inputs.css("background", "none");
+// // 		//loops through all values to determine if empty
+// // 		// successno();
+
+//  		inputs.each(function() {
+//  				if ($(this).val() == "") {
+//  					$(this).css("background", "red");
+//  					var element = $('.element');
+//  					element.removeClass('inactive').addClass('active');
+//  					element.append('<p>You Might Want to Check Again!</p>');
+//  					if ($(this).click(function() {
+//  						element.removeClass('active').addClass('inactive');
+//  						$('.element > p').remove('p');
+//  					})
+//  				}
+
+//  				if $('input').val() != "") {
+//  					$('input').css("background", "none");
+//  					console.log("true");
+//  					}
+//  			})
+
+
+
+
+// 				// var element = $('.element');
+// 				// var active = function(){
+// 				// 	if ($(this).val() != "") {
+// 				// 	element.removeClass('inactive').addClass('active');
+// 				// 	element.append('<p>You Might Want to Check Again!</p>');
+// 				// }
+// }
+
 
 
 // this will display all beers with there values compared to the users preference values

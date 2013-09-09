@@ -19,7 +19,6 @@
 	})
 
 	beerStash = new BeerCollection();
-
 	describe('the BeerCollection constructor', function() {
 		it('method add() should push a new beer into the beerStash.beers array', function() {
 
@@ -67,7 +66,7 @@
 			expect(beer.diff).to.equal(0);
 		});
 
-		it('checks if overallRanking first propterty is 'sour'', function() {
+		it('checks if overallRanking first propterty is sour', function() {
 			expect(user.overallRanking[0]).to.equal('sour');
 		});
 
