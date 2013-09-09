@@ -28,10 +28,6 @@
 			}
 			expect(user.overallRanking[0]).to.equal('sour');
 		});
-
-
-
-
 	});
-
 })();
+
