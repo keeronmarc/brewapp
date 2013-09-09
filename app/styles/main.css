@@ -100,7 +100,7 @@ body {
 
 .flavor-box span {
     display: block;
-    margin: 10px 10px 10px 0;
+    margin: 5px 10px 0 0;
 }
 
 .flavor-box.for-buttons span {
@@ -135,7 +135,7 @@ body {
 .next-page .bottle {
     height: 130px;
     display: inline-block;
-    margin: 33px 0 0 80px;
+    margin-top: 8px;
     background-color: #C8A84C;
     box-shadow: 0 0 34px 11px #C8A84C, 0 0 0px -2px black;
 }
@@ -172,8 +172,7 @@ body {
 
 .next-page .box-o-preferences {
     display: inline-block;
-    margin-left: -200px;
-    margin-top: 20px;
+    margin: 0px 50px 0 125px;
 }
 
 .beer-name {
