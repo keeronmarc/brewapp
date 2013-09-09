@@ -1,11 +1,12 @@
 'use strict';
 (function () {
 
+	beerStash = new BeerCollection();
+
 	beforeEach(function() {
 		beerStash.beers = [];
 	})
 
-	beerStash = new BeerCollection();
 	describe('the BeerCollection constructor', function() {
 		it('method add() should push a new beer into the beerStash.beers array', function() {
 
@@ -69,13 +70,7 @@
 			beer.diff = 0;
 			beer.diff = beer.diff + (Math.abs(beer.sour - user.sour));
 			expect(beer.diff).to.equal(1);
-		});
-
-
-		it('takes', function() {
-			var user = {sour: 3, bitter: 3, salty: 2, sweet:4}
-			expect(user.sour).to.equal(3);
-		});  	
+		}); 	
 	});
 
 })();

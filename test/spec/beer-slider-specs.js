@@ -4,9 +4,9 @@
         describe('clicking forward button', function () {
 
         	beforeEach(function() {
-				indent = 0;
-				numberOfClicks = 0;
-				clicksMax = 0;
+			    indent = 0;
+			    numberOfClicks = 0;
+			    clicksMax = 20;
         	});
 
             it('should remove class button-faded from backward-button', function () {
@@ -15,14 +15,16 @@
             });
 
             it('should add 1 to the numberOfClicks variable', function () {
-            	$('.foreward-button').click();
-            	expect(numberOfClicks).to.equal(1);
-            });
+                clicksMax = 20;
 
-            it('should subtract 400 ', function () {
-            	var indentVal = $('.slider-box').css( "left" );
-            	$('.foreward-button').click();
-            	expect(indentVal).to.equal(-400);
+                // $('.foreward-button').click();
+                if(numberOfClicks < clicksMax) {
+                    indent = indent - 400;
+                    numberOfClicks += 1;
+                    slideEitherDirection(); 
+                };
+
+            	expect(numberOfClicks).to.equal(1);
             });
         });
     });
