@@ -1,16 +1,3 @@
-/*global describe, it */
-// 'use strict';
-// (function () {
-//     describe('Give it some context', function () {
-//         describe('maybe a bit more context here', function () {
-//             it('should run here few assertions', function () {
-
-//             	expect(true).to.equal(true);
-//             });
-//         });
-//     });
-// })();
-
 'use strict';
 (function () {
 
@@ -83,7 +70,6 @@
 			beer.diff = beer.diff + (Math.abs(beer.sour - user.sour));
 			expect(beer.diff).to.equal(1);
 		});
-
 
 		it('takes', function() {
 			var user = {sour: 3, bitter: 3, salty: 2, sweet:4}
