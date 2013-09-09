@@ -188,7 +188,7 @@ $('.circle-button.large').click(function() {
 // // call keeron's error check
 var checkrows = $('.container-o-circles a');
 	if ($('.active').length < 4) {
-		$('.big-button-container').append('<p>You Might Want to Check Again!</p>');
+		$('.errormsg').append('<p>You Might Want to Check Again!!!</p>');
 		return false;
 	}
 	// var flavors = ['sour', 'bitter', 'sweet', 'salty'];
